@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: fyp_project
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: dev4747
